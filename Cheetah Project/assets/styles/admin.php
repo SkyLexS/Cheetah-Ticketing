@@ -50,7 +50,7 @@
     }
 
     #welcome{
-        background-color: #292727;
+        background-color: white;
         /* border-bottom: 1px solid rgb(19, 18, 18); */
     }
 
@@ -65,7 +65,6 @@
     #welcome li{
         margin: 0 1rem;
         padding: 0.5rem 0;
-        color: white;
     }
 
     #welcome li:first-child{
@@ -140,13 +139,13 @@
         }
 
         .active {
-            background-color:black;
-            color:white;
+            background-color:white;
+            color:black;
         }
 
         .option a:hover{
-            color: white;
-            background-color: black;
+            color: black;
+            background-color: white;
         }
 
         #main-content{

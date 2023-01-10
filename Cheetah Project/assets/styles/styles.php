@@ -52,7 +52,7 @@
 
     /* Overriding Bootstrap */
     nav a:hover{
-        color: black;
+        color: #C53838;
     }
     nav{
         text-align: center;
@@ -87,13 +87,16 @@
 
     nav a:not(.nav-logo):hover{
         text-decoration: underline;
-        color: red;
     }
 
     .nav-logo{
-        color: #f73437;
+        color: #C53838;
         letter-spacing: 5px;
         transition: none;
+    }
+    
+    .nav-logo:hover{
+        color:black
     }
 
     /* Alert Message on top of the header */
@@ -293,8 +296,8 @@
     }
 
     #contact{
-        background-color: #e5e5e5;
-        color: black;
+        background-color: black;
+        color: white;
         padding: 3rem 0;
     }
 
@@ -304,9 +307,6 @@
     }
     #contact-form h1{
         margin-top: 0;
-        text-align: center;
-    }
-    #contact-form h4{
         text-align: center;
     }
 

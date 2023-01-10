@@ -23,10 +23,69 @@
     <!-- CSS -->
     <?php 
         require 'assets/styles/styles.php'
+
     ?>
 </head>
 <body>
     <?php
+   
+
+    if($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        if(isset($_POST["submit"]))
+            {
+                /*
+                    ADDING Customers
+                 Check if the $_POST key 'submit' exists
+                */
+                // Should be validated client-side
+                $cname = $_POST["cfirstname"] . " " . $_POST["clastname"];
+                $cphone = $_POST["cphone"];
+        
+                $customer_exists = exist_customers($conn,$cname,$cphone);
+                $customer_added = false;
+            }
+            if(!$customer_exists)
+            {
+                // Route is unique, proceed
+                $sql = "INSERT INTO `customers` (`customer_name`, `customer_phone`, `customer_created`) VALUES ('$cname', '$cphone', current_timestamp());";
+                $result = mysqli_query($conn, $sql);
+                // Gives back the Auto Increment id
+                $autoInc_id = mysqli_insert_id($conn);
+                // If the id exists then, 
+                if($autoInc_id)
+                {
+                    $code = rand(1,99999);
+                    // Generates the unique userid
+                    $customer_id = "CUST-".$code.$autoInc_id;
+                    
+                    $query = "UPDATE `customers` SET `customer_id` = '$customer_id' WHERE `customers`.`id` = $autoInc_id;";
+                    $queryResult = mysqli_query($conn, $query);
+
+                    if(!$queryResult)
+                        echo "Not Working";
+                }
+
+                if($result)
+                    $customer_added = true;
+            }
+
+            if($customer_added)
+            {
+                // Show success alert
+                echo '<div class="my-0 alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Successful!</strong> Customer Added
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+            }
+            else{
+                // Show error alert
+                echo '<div class="my-0 alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Error!</strong> Customer already exists
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+            }
+        }        
     
     if(isset($_GET["booking_added"]) && !isset($_POST['pnr-search']))
     {
@@ -206,7 +265,7 @@
             <ul>
                 <li><a href="#" class="nav-item">Home</a></li>
                 <li><a href="#about" class="nav-item">About</a></li>
-                <li><a href="#contact" class="nav-item">Contact</a></li>
+                <li><a href="#contact" class="nav-item">Customer</a></li>
             </ul>
             <div>
                 <a href="#" class="login nav-item" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="fas fa-sign-in-alt" style="margin-right: 0.4rem;"></i>Login</a>
@@ -296,28 +355,33 @@
             </div>
         </section>
         <hr>
+        <?php require './assets/partials/_getJSON.php';?>
         <section id="contact">
             <div id="contact-form">
-                <h1>Form for complaints</h1>
-                <h4>Tell us what problems did you encounter.</h4>
+                <h1>Customer</h1>
+                <h4>Become our customer</h4>
 
-                <form action="">
-                    <div>
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="name">
+                <form id="addCustomerForm" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
+                    <div class="mb-3">
+                    <label for="cfirstname" class="form-label">Customer Firstname</label>
+                        <input type="text" class="form-control" id="cfirstname" name="cfirstname" required>
                     </div>
-                    <div>
-                        <label for="email">Email Address</label>
-                        <input type="email" name="email" id="email">
+                    <div class="mb-3">
+                        <label for="clastname" class="form-label">Customer Lastname</label>
+                        <input type="text" class="form-control" id="clastname" name="clastname" required>
                     </div>
-                    <div>
-                        <label for="message">Message</label>
-                        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                    <div class="mb-3">
+                        <label for="cphone" class="form-label">Contact Number</label>
+                        <input type="tel" class="form-control" id="cphone" name="cphone" required>
                     </div>
-                    <div></div>
+                    <button type="submit" class="btn btn-success" name="submit">Submit</button>
+                    <div>
+                        
+                    </div>
                 </form>
             </div>
         </section>
+        
     </div>
     
     <!-- Delete Booking Modal -->
@@ -352,5 +416,6 @@
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <!-- External JS -->
     <script src="assets/scripts/main.js"></script>
+    <script src="../assets/scripts/admin_booking.js"></script>
 </body>
 </html>

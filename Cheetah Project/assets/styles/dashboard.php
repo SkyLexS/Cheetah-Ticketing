@@ -1,7 +1,4 @@
 <style>
-    body{
-        background-color: #292727;
-    }
     #main-content h3{
         padding-left: 1rem;
         margin-bottom: 0;
@@ -12,9 +9,6 @@
         display: flex;
         flex-wrap: wrap;
     }
-    #admin,h4{
-        color: white;
-    }
     .info-box{
         padding: 0.3rem 1rem;
         border-left: 4px solid;
@@ -22,10 +16,7 @@
         flex-basis: 45%;
         border-radius: 5px;
         box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.25);
-        background-color: black;
-    }
-    .info-box p{
-        color: white;
+        background-color: white;
     }
 
     .heading{
@@ -61,39 +52,39 @@
     }
     /* START-hardcoding */
     #Booking{
-        border-color: #DC5F00;
+        border-color: #3e93d9;
     }
 
     #Booking h5{
-        background-color: #DC5F00;
+        background-color: #3e93d9;
     }
 
     #Booking a{
-        color: #DC5F00;
+        color: #3e93d9;
     }
 
     #Earning {
-        border-color: #59CE8F;
+        border-color: #23bf29;
     }
 
     #Earning h5{
-        background-color:#59CE8F;
+        background-color:#23bf29;
     }
 
     #Earning a{
-        color: #59CE8F;
+        color: #23bf29;
     }
 
     #Bus {
-        border-color: #810CA8;
+        border-color: #009688;
     }
 
     #Bus h5{
-        background-color: #810CA8;
+        background-color: #009688;
     }
 
     #Bus a{
-        color: #810CA8;
+        color: #009688;
     }
 
     #Route{
@@ -109,27 +100,27 @@
     }
 
     #Seat{
-        border-color: #8758FF;
+        border-color: #A66314;
     }
 
     #Seat h5{
-        background-color: #8758FF;
+        background-color: #A66314;
     }
 
     #Seat a{
-        color: #8758FF;
+        color: #A66314;
     }
 
     #Customer{
-        border-color: #0F3D3E;
+        border-color: #2D2B28;
     }
 
     #Customer h5{
-        background-color: #0F3D3E;
+        background-color: #2D2B28;
     }
 
     #Customer a{
-        color: #0F3D3E;
+        color: #2D2B28;
     }
 
     #Admin{

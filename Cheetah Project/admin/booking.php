@@ -22,11 +22,6 @@
         require '../assets/styles/admin-options.php';
         $page="booking";
     ?>
-    <style>
-        body{
-            background-color: #292727;
-        }
-    </style>
 </head>
 <body>
     <!-- Requiring the admin header files -->

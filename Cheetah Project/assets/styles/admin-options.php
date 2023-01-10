@@ -2,6 +2,7 @@
     *{
     font-family: Montserrat;
     }
+
     .error{
         font-size: 15px;
         color: red;
@@ -17,7 +18,6 @@
         /* display: flex;
         justify-content: space-between; */
         padding-top: 1rem;
-        color: white;
     }
 
 
@@ -56,7 +56,6 @@
     #seat
     {
         padding: 0 1rem;
-        background-color: #292727;
     }
 
     #booking-results > div,
@@ -98,39 +97,6 @@
      #bus table{
         width: 50%;
         margin: 0 auto;
-        color: white;
-    }
-
-    #bus .table-hover tr:hover td{
-        color:#c53838;
-        background-color:white;
-    }
-
-    #route table{
-        color: white;
-    }
-
-    #route .table-hover tr:hover td{
-        color:#c53838;
-        background-color:white;        
-    }
-
-    #customer table{
-        color: white;
-    }
-
-    #customer .table-hover tr:hover td{
-        color:#c53838;
-        background-color:white;         
-    }
-
-    #booking table{
-        color: white;
-    }
-
-    #booking .table-hover tr:hover td{
-        color: #c53838;
-        background-color: white;
     }
 
     #bus .edit-button,
@@ -155,11 +121,11 @@
     }
 
     .edit-button{
-        background-color: #DC5F00;
+        background-color: #4370E2;
     }
 
     .delete-button{
-        background-color: #810CA8;
+        background-color: #EF0000;
     }
 
     .edit-button,

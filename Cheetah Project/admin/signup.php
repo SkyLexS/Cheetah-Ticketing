@@ -21,11 +21,6 @@
         require '../assets/styles/signup.php';
         $page="signup";
     ?>
-    <style>
-        body{
-            background-color: #292727;
-        }
-    </style>
     </head>
 <body>
     <!-- Requiring the admin header files -->

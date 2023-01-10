@@ -32,8 +32,8 @@
         }
 
         // Redirect Page
-        header("location: ../admin/signup.php?signup=$signup_sucess&user_exists=$user_exists");
-        //header("location: ../../admin/dashboard.php");
+        //header("location: ../admin/signup.php?signup=$signup_sucess&user_exists=$user_exists");
+        header("location: ../../admin/dashboard.php");
     }
 
 ?>
